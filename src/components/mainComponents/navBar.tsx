@@ -43,7 +43,7 @@ const NavBar: React.FC = () => {
             dropdown: [
                 { name: 'Sign up', link: '/page/signUpPage' },
                 { name: 'Sign in', link: '/page/signInPage' },
-                { name: 'FAQ', link: '/pages/faq' },
+                { name: 'FAQ', link: '/page/faqPage' },
                 { name: '404 Error', link: '/page/404error' },
             ],
         },
