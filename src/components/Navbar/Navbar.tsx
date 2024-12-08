@@ -65,19 +65,19 @@ const Navbar: React.FC = () => {
                     <Link href="/" className='hover:text-yellow-500 text-white'>
                         Home
                     </Link>
-                    <Link href="/menu" className='hover:text-yellow-500 text-white'>
+                    <Link href={"/manu"} className='hover:text-yellow-500 text-white'>
                         Menu
                     </Link>
-                    <Link href="/blog" className='hover:text-yellow-500 text-white'>
+                    <Link href={"/blog"} className='hover:text-yellow-500 text-white'>
                         Blog
                     </Link>
                     <Link href="/pages" className='hover:text-yellow-500 text-white'>
                         Pages
                     </Link>
-                    <Link href="/" className='hover:text-yellow-500 text-white flex items-center'>
+                    <Link href="/about" className='hover:text-yellow-500 text-white flex items-center'>
                         About <span className='ml-1 mt-1'><FaChevronDown className='text-xs' /></span>
                     </Link>
-                    <Link href="/" className='hover:text-yellow-500 text-white'>
+                    <Link href="/shop" className='hover:text-yellow-500 text-white'>
                         Shop
                     </Link>
                     <Link href="/contact" className='hover:text-yellow-500 text-white'>
