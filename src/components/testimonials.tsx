@@ -1,6 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
-import { FaQuoteRight, FaStar } from 'react-icons/fa'
+import { FaStar } from 'react-icons/fa'
+import { Great_Vibes } from 'next/font/google'
+import { PiQuotesThin } from 'react-icons/pi'
+
+const letter = Great_Vibes({ subsets: ["latin"], weight: "400" })
 
 const Testimonials = () => {
   const testimonials = [
@@ -14,7 +18,7 @@ const Testimonials = () => {
     },
     {
         id: 2,
-        image: '/testimonial1.png',
+        image: '/testimonial1.jpeg',
         name: 'Alamin Hasan',
         role: 'Food Specialist',
         rating: 4,
@@ -43,10 +47,10 @@ const Testimonials = () => {
     <section className="py-24 bg-transparent relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <h3 className="text-[#FF9F0D] font-great-vibes text-3xl text-center mb-16">
+        <h3 className={`${letter.className} text-[#FF9F0D] font-great-vibes text-3xl text-left mb-8`}>
           Testimonials
         </h3>
-        <h1 className="text-white text-4xl font-bold text-center">
+        <h1 className="text-white text-4xl mt-8 mb-8 font-bold text-left">
             What Our Clients Say
         </h1>
 
@@ -56,10 +60,10 @@ const Testimonials = () => {
           {/* Quote Icon */}
             {/* Quote Icon */}
           <div className="flex justify-center mb-8 ">
-              <Image src="/test1.png" alt="quote" width={80} height={80} className="object-contain" />
+              <Image src="/testimonial1.jpeg" alt="quote" width={200} height={250} className="object-contain rounded-full -mt-40" />
           </div>
           <div className="flex justify-center mb-8">
-            <FaQuoteRight className="text-[#FF9F0D] text-5xl" />
+            <PiQuotesThin  className="text-[#FF9F0D] text-5xl" />
           </div>
 
           {/* Testimonial Content */}
@@ -68,15 +72,7 @@ const Testimonials = () => {
               {testimonials[0].text}
             </p>
 
-            {/* Profile Image */}
-            <div className="w-24 h-24 mx-auto mb-4 relative">
-              <Image
-                src={testimonials[0].image}
-                alt={testimonials[0].name}
-                fill
-                className="rounded-full object-cover"
-              />
-            </div>
+            
 
             {/* Rating Stars */}
             <div className="flex justify-center gap-1 mb-4">

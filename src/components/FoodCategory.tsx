@@ -1,27 +1,30 @@
 import React from 'react'
 import Image from 'next/image'
+import { Great_Vibes } from 'next/font/google'
+
+const letter = Great_Vibes({ subsets: ["latin"], weight: "400" })
 
 const FoodCategory = () => {
   const foodItems = [
     {
       id: 1,
-      image: '/chooseFood1.png',
+      image: '/food1.png',
       title: 'Fast Food Dish',
       discount: 'Save 30%',
     },
     {
       id: 2,
-      image: '/chooseFood2.png',
+      image: '/food4.png',
       title: 'Beef Burger',
     },
     {
       id: 3,
-      image: '/chooseFood3.png',
+      image: '/food3.png',
       title: 'Chicken Salad',
     },
     {
       id: 4,
-      image: '/chooseFood4.png',
+      image: '/food2.png',
       title: 'Dessert',
     },
   ]
@@ -31,7 +34,7 @@ const FoodCategory = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h3 className="text-[#FF9F0D] font-great-vibes text-3xl mb-2">
+          <h3 className={`${letter.className} text-[#FF9F0D] font-great-vibes text-3xl mb-2`}>
             Food Category
           </h3>
           <h2 className="text-[#FF9F0D] text-6xl font-bold">

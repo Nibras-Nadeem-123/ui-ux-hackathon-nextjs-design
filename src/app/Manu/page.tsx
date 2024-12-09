@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Statistics from '@/components/Statistics';
 import PageHeader from '@/components/pageHeader';
 
+
 export default function Menu() {
   return (
     <div>
@@ -20,7 +21,7 @@ export default function Menu() {
         {/* Starter Menu */}
         <section className="w-full max-w-4xl my-12 px-4 flex flex-col md:flex-row gap-8 items-center">
           <Image
-            src="/menupage1.png"
+            src="/menu.png"
             alt="Starter Menu"
             width={400}
             height={200}
@@ -78,6 +79,7 @@ export default function Menu() {
                 </div>
                 <span className="text-orange-500 font-bold">$32</span>
               </li>
+              <hr/>
               <li className="flex justify-between">
                 <div>
                   <h3 className="font-bold">Cashew Chicken With Stir-Fry</h3>
@@ -94,6 +96,7 @@ export default function Menu() {
                 </div>
                 <span className="text-orange-500 font-bold">$14</span>
               </li>
+              <hr/>
               <li className="flex justify-between">
                 <div>
                   <h3 className="font-bold">Spicy Vegan Potato Curry</h3>
@@ -102,10 +105,11 @@ export default function Menu() {
                 </div>
                 <span className="text-orange-500 font-bold">$35</span>
               </li>
+              <hr/>
             </ul>
           </div>
           <Image
-            src="/menupage2.png"
+            src="/mainCourse.png"
             alt="Main Course"
             width={400}
             height={300}
@@ -118,7 +122,7 @@ export default function Menu() {
         {/* Dessert */}
         <section className="w-full max-w-4xl my-12 px-4 flex flex-col md:flex-row gap-8 items-center">
           <Image
-            src="/menupage3.png"
+            src="/dessert.png"
             alt="Dessert"
             width={400}
             height={300}
@@ -203,13 +207,26 @@ export default function Menu() {
             </ul>
           </div>
           <Image
-            src="/menupage4.png"
+            src="/drinks.png"
             alt="Drinks"
             width={400}
             height={300}
             className="rounded-lg shadow-lg"
           />
         </section>
+        {/* partners and clients */}
+        <div className='w-full max-w-8xl my-20 px-4 gap-8 items-center' >
+          <p className='text-[18px] text-[#333333] text-center'>Partners & Clients</p>
+          <p className='text-[48px] text-[#333333] font-bold text-center'>We work with the best pepole</p>
+          <div className='md:flex grid md:grid-cols-2 gap-5 '>
+            <Image src={"/bakery1.png"} alt='' height={129.23} width={240.96} className='m-5'/>
+            <Image src={"/bakery2.png"} alt='' height={129.23} width={240.96} className='m-5'/>
+            <Image src={"/bakery3.png"} alt='' height={129.23} width={240.96} className='m-5'/>
+            <Image src={"/bakery4.png"} alt='' height={129.23} width={240.96} className='m-5'/>
+            <Image src={"/bakery5.png"} alt='' height={129.23} width={240.96} className='m-5'/>
+            <Image src={"/bakery6.png"} alt='' height={129.23} width={240.96} className='m-5'/>
+          </div>
+        </div>
       </div>
     </div>
   );

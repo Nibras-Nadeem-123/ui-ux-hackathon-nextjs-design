@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
-
+ 
 const inter = Inter({ subsets: ['latin'] });
 
 type DropdownItem = {
@@ -23,42 +23,38 @@ const NavBar: React.FC = () => {
         { name: 'Home', link: '/' },
         {
             name: 'Menu',
-            link: '/',
-            dropdown: [
-                { name: 'Breakfast', link: '/menu/breakfast' },
-                { name: 'Lunch', link: '/menu/lunch' },
-                { name: 'Dinner', link: '/menu/dinner' },
-            ],
+            link: '/Manu',
         },
         {
             name: 'Blog',
             link: '/blog',
             dropdown: [
-                { name: 'Blog Details', link: '/blog/blogDetails' },
+                { name: 'Blog Details', link: '/blog/blogDettails' },
             ],
         },
         {
             name: 'Pages',
             link: '/',
             dropdown: [
-                { name: 'Sign up', link: '/page/signUpPage' },
-                { name: 'Sign in', link: '/page/signInPage' },
-                { name: 'FAQ', link: '/page/faqPage' },
-                { name: '404 Error', link: '/page/404error' },
+                { name: 'Sign up', link: '/signup' },
+                { name: 'Sign in', link: '/logIn' },
+                { name: 'FAQ', link: '/FAQ' },
+                { name: '404 Error', link: '/404Error' },
+                { name: 'Check Out Page', link: '/checkOut' },
             ],
         },
         {
             name: 'About',
             link: '/about',
             dropdown: [
-                { name: 'Our Chefs', link: '/about/ourChefs' },
+                { name: 'Our Chefs', link: '/ourChefs' },
             ],
         },
         {
             name: 'Shop',
             link: '/shop',
             dropdown: [
-                { name: 'Shop Details', link: '/shop/shopDetails' },
+                { name: 'Shop Details', link: '/shop/shopDetail' },
                 { name: 'Shopping Cart', link: '/shop/shopingCart' },
             ],
         },

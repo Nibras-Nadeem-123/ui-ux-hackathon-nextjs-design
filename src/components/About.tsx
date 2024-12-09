@@ -1,6 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
 import Button from './ui/Button'
+import { Great_Vibes, Inter } from 'next/font/google'
+ 
+const letter = Great_Vibes({subsets:["latin"], weight: "400"})
+const inter = Inter({subsets:["latin"]})
 
 const About = () => {
   const features = [
@@ -17,23 +21,23 @@ const About = () => {
           <div className="flex flex-col justify-between lg:h-[570px] mb-8 lg:mb-0">
             <div className="space-y-6">
               <div>
-                <h3 className="text-[#FF9F0D] font-great-vibes text-3xl mb-4">
+                <h3 className={`${letter.className} text-[#FF9F0D] font-great-vibes text-3xl mb-4`}>
                   About us
                 </h3>
-                <h2 className="text-[#FF9F0D] text-5xl font-bold leading-tight">
-                  We Create the best
+                <h2 className="text-5xl text-white font-bold leading-tight">
+                  <span className='text-[#FF9F0D] '>We </span>Create the best
                   <br /> foody product
                 </h2>
               </div>
 
-              <p className="text-white text-base leading-5">
+              <p className={`${inter.className} text-white text-[16px] text-base leading-5`}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam 
                 pellentesque bibendum non dui volutpat fringilla bibendum. Urna, elit 
                 augue urna, vitae feugiat pretium donec id elementum. Ultrices mattis 
                 sed vitae mus risus. Lacus nisi, et ac dapibus sit eu velit in consequat.
               </p>
 
-              <ul className="space-y-4">
+              <ul className="space-y-4 text-[18px]">
                 {features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <svg 
@@ -60,18 +64,18 @@ const About = () => {
 
           {/* Right Content - Images Grid */}
           <div className="lg:h-[570px] flex flex-col justify-between">
-            <div className="h-[330px] relative mb-4 lg:mb-0">
+            <div className="h-[330px] relative mt-7 lg:mb-0">
               <Image
-                src="/aboutUS1.png"
+                src="/photo2.jpg"
                 alt="Main food image"
                 fill
                 className="rounded-md object-cover"
               />
             </div>
-            <div className="grid grid-cols-2 gap-4 h-[194px]">
+            <div className="grid grid-cols-2 gap-4 -mt-3 h-[194px]">
               <div className="relative">
                 <Image
-                  src="/aboutUS2.png"
+                  src="/photo5.jpg"
                   alt="Food image 1"
                   fill
                   className="rounded-md object-cover"
@@ -79,7 +83,7 @@ const About = () => {
               </div>
               <div className="relative">
                 <Image
-                  src="/aboutUS3.png"
+                  src="/blogLeftSide4.jpg"
                   alt="Food image 2"
                   fill
                   className="rounded-md object-cover"

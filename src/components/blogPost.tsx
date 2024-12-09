@@ -1,26 +1,29 @@
 import React from 'react'
 import Image from 'next/image'
 import { BiComment } from 'react-icons/bi'
+import { Great_Vibes } from 'next/font/google'
+
+const letter = Great_Vibes({subsets:["latin"], weight: "400"})
 
 const BlogPost = () => {
   const blogPosts = [
     {
       id: 1,
-      image: '/choose1.png',
+      image: '/food4.png',
       date: '10 February 2022',
       title: 'The Secret to Perfect Burger Making',
       comments: 3
     },
     {
       id: 2,
-      image: '/choose2.png',
+      image: '/photo1.jpg',
       date: '10 February 2022',
       title: 'The Art of Pizza Making',
       comments: 5
     },
     {
       id: 3,
-      image: '/choose6.png',
+      image: '/yougot1.jpg',
       date: '10 February 2022',
       title: 'Fresh Mexican Tacos',
       comments: 4
@@ -32,7 +35,7 @@ const BlogPost = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h3 className="text-[#FF9F0D] font-great-vibes text-3xl mb-4">
+          <h3 className={`${letter.className} text-[#FF9F0D] font-great-vibes text-3xl mb-4`}>
             Blog Post
           </h3>
           <h2 className="text-[#FF9F0D] text-6xl font-bold">

@@ -1,10 +1,9 @@
+import BlogComp from '@/components/blogPage/page'
 import React from 'react'
-import Hero from './Hero'
-const BlogPage = () => {
+ const BlogPage = () => {
   return (
     <div>
-      <Hero />
-      
+      <BlogComp/>
     </div>
   )
 }

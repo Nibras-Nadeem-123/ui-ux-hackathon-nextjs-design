@@ -3,26 +3,32 @@ import React, { useState } from 'react';
 
 const faqData = [
   {
+    id: 1,
     question: "How do we serve food?",
     answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt.",
   },
   {
+    id: 2,
     question: "How is our food quality?",
     answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt.",
   },
   {
+    id: 3,
     question: "How do we give home delivery?",
     answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt.",
   },
   {
+    id: 4,
     question: "How can we get in touch with you?",
     answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt.",
   },
   {
+    id: 5,
     question: "What will be delivered? And When?",
     answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt.",
   },
   {
+    id: 6,
     question: "Is this restaurant 24 hours open?",
     answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt.",
   },
@@ -45,21 +51,21 @@ const FAQPage: React.FC = () => {
         </p>
 
         <div className="grid gap-6 md:grid-cols-2">
-          {faqData.map((faq, index) => (
+          {faqData.map((faq) => (
             <div
-              key={index}
+              key={faq.id}
               className="bg-white p-6 rounded-lg shadow-lg transition-transform duration-200"
             >
               <div
-                onClick={() => toggleFAQ(index)}
+                onClick={() => toggleFAQ(faq.id)}
                 className="cursor-pointer flex justify-between items-center"
               >
                 <h3 className="text-lg font-medium">{faq.question}</h3>
                 <span className="text-2xl">
-                  {openIndex === index ? '-' : '+'}
+                  {openIndex === faq.id ? '-' : '+'}
                 </span>
               </div>
-              {openIndex === index && (
+              {openIndex === faq.id && (
                 <p className="text-sm text-gray-600 mt-4">{faq.answer}</p>
               )}
             </div>

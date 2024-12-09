@@ -1,5 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
+import { Great_Vibes } from 'next/font/google'
+
+const letter = Great_Vibes({ subsets: ["latin"], weight: "400" })
+
 
 const FoodTeam = () => {
   const chefs = [
@@ -30,7 +34,7 @@ const FoodTeam = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h3 className="text-[#FF9F0D] font-great-vibes text-3xl mb-2">
+          <h3 className={`${letter.className} text-[#FF9F0D] font-great-vibes text-3xl mb-2`}>
             Chefs
           </h3>
           <h2 className="text-[#FF9F0D] text-6xl font-bold">

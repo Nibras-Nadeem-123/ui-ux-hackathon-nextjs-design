@@ -12,7 +12,7 @@ const text = Roboto({
 
 const Header = () => {
   return (
-    <div className='fixed z-10 bg-black w-full h-[90px] '>
+    <div className='fixed z-30 bg-black w-full h-[90px] '>
       <div className='flex h-[32px] ml-[100px] mt-[29px] w-full'>
         <p className={`${text.className} text-[24px] text-white`}>Food<span className={`${text.className} text-[24px] text-[#FF9F0D]`}>tuck</span></p>
         <NavBar/>

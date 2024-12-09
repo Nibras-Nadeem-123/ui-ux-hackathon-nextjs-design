@@ -2,26 +2,43 @@
 
 import Image from 'next/image';
 import React, { useState } from 'react';
+import Hero from './Hero';
+import { MdStar } from 'react-icons/md';
 
 const initialCartItems = [
-  { name: "Burger", price: 10.99, quantity: 2, image: "/cart1.png" },
-  { name: "Fresh Lime", price: 3.49, quantity: 1, image: "/cart2.png" },
-  { name: "Pizza", price: 9.99, quantity: 4, image: "/cart3.png" },
-  { name: "Chocolate Muffin", price: 4.49, quantity: 1, image: "/cart4.png" },
-  { name: "Cheese Butter", price: 11.99, quantity: 3, image: "/cart5.png" },
+  { id: 1, name: "Burger", price: 10.99, quantity: 2, image: "/cart1.png" },
+  { id: 2, name: "Fresh Lime", price: 3.49, quantity: 1, image: "/cart2.png" },
+  { id: 3, name: "Pizza", price: 9.99, quantity: 4, image: "/cart3.png" },
+  { id: 4, name: "Chocolate Muffin", price: 4.49, quantity: 1, image: "/cart4.png" },
+  { id: 5, name: "Cheese Butter", price: 11.99, quantity: 3, image: "/cart5.png" },
 ];
 
 const ShoppingCart: React.FC = () => {
   const [cartItems, setCartItems] = useState(initialCartItems);
   const [couponCode, setCouponCode] = useState("");
   const [discount, setDiscount] = useState(0);
-
+  const [ratings, setRatings] = useState<Record<number, number>>({});
+ 
   const handleQuantityChange = (index: number, newQuantity: number) => {
     const updatedItems = cartItems.map((item, i) =>
       i === index ? { ...item, quantity: newQuantity } : item
     );
     setCartItems(updatedItems);
   };
+
+   // Render star ratings
+   const renderStars = (productId: number) => (
+    <div className="flex gap-1">
+      {[1, 2, 3, 4, 5].map((star) => (
+        <MdStar
+          key={star}
+          fill={star <= (ratings[productId] || 0) ? "gold" : "gray"}
+          className="w-4 h-4 cursor-pointer hover:scale-110 transition-transform"
+          onClick={() => setRatings({ ...ratings, [productId]: star })}
+        />
+      ))}
+    </div>
+  );
 
   const handleRemoveItem = (index: number) => {
     setCartItems(cartItems.filter((_, i) => i !== index));
@@ -41,6 +58,7 @@ const ShoppingCart: React.FC = () => {
 
   return (
     <div className="bg-white font-sans">
+    <Hero/>
       <header className="bg-cover bg-center h-48 flex items-center justify-center" style={{ backgroundImage: 'url(/path/to/header-bg.jpg)' }}>
         <h1 className="text-5xl font-bold text-white tracking-wide">Shopping Cart</h1>
       </header>
@@ -59,8 +77,11 @@ const ShoppingCart: React.FC = () => {
             {cartItems.map((item, index) => (
               <tr key={index} className="border-b">
                 <td className="p-4 flex items-center">
-                  <Image src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded mr-4" />
-                  <span>{item.name}</span>
+                  <Image src={item.image} alt={item.name} width={16} height={16} className="w-16 h-16 object-cover rounded mr-4" />
+                  <div>
+                      <p>{item.name}</p>
+                      {renderStars(item.id)}
+                    </div>
                 </td>
                 <td className="p-4">${item.price.toFixed(2)}</td>
                 <td className="p-4">

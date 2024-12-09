@@ -1,18 +1,113 @@
+import Testimonials from "@/components/testimonials";
+import { Miniver, Roboto } from "next/font/google";
 import Image from "next/image";
 import { IoPlayOutline } from "react-icons/io5";
+import TeamMember from "@/components/TeamMember";
+import { Inter } from 'next/font/google'
+import Link from "next/link";
 
+const letter = Miniver({ subsets: ["latin"], weight: "400" })
+const text = Roboto({subsets:["latin"], weight: "500"})
+const inter = Inter({ subsets: ["latin"], weight: "700" })
 
 export default function Aboutus() {
+
+  const categories = [
+    { id: 1, name: 'Breakfast', active: true },
+    { id: 2, name: 'Lunch' },
+    { id: 3, name: 'Dinner' },
+    { id: 4, name: 'Dessert' },
+    { id: 5, name: 'Drink' },
+    { id: 6, name: 'Snack' },
+    { id: 7, name: 'Soups' },
+  ]
+
+
+  const teamMembers = [
+    {
+      name: "Mark Henry",
+      role: "Owner",
+      image: "/chef1.png"
+    },
+    {
+      name: "Lucky Helen",
+      role: "Chef",
+      image: "/chef2.png"
+    },
+    {
+      name: "Moon Henry",
+      role: "Founder",
+      image: "/chef3.png"
+    },
+    {
+      name: "Tom Monrow",
+      role: "Specialist",
+      image: "/chef4.png"
+    }
+  ];
+
+  const menuItems = [
+    {
+      title: 'Alder Grilled Chinook Salmon',
+      description: 'Toasted French bread topped with romano, cheddar',
+      price: "32$",
+      cal: '560 CAL'
+    },
+    {
+      title: 'Alder Grilled Chinook Salmon',
+      description: 'Toasted French bread topped with romano, cheddar',
+      price: "32$",
+      cal: '560 CAL'
+    },
+    {
+      title: 'Alder Grilled Chinook Salmon',
+      description: 'Toasted French bread topped with romano, cheddar',
+      price: "32$",
+      cal: '560 CAL'
+    },
+    {
+      title: 'Alder Grilled Chinook Salmon',
+      description: 'Toasted French bread topped with romano, cheddar',
+      price: "32$",
+      cal: '560 CAL'
+    }, {
+      title: 'Alder Grilled Chinook Salmon',
+      description: 'Toasted French bread topped with romano, cheddar',
+      price: "32$",
+      cal: '560 CAL'
+    },
+
+    {
+      title: 'Alder Grilled Chinook Salmon',
+      description: 'Toasted French bread topped with romano, cheddar',
+      price: "32$",
+      cal: '560 CAL'
+    },
+    {
+      title: 'Alder Grilled Chinook Salmon',
+      description: 'Toasted French bread topped with romano, cheddar',
+      price: "32$",
+      cal: '560 CAL'
+    },
+    {
+      title: 'Alder Grilled Chinook Salmon',
+      description: 'Toasted French bread topped with romano, cheddar',
+      price: "32$",
+      cal: '560 CAL'
+    },
+
+  ]
+
   return (
-    <div>
+    <div className=" mx-20 my-40">
       {/* Frist Section: Content and Buttons */}
       <section className="text-white body-font">
         <div className="container mx-auto flex px-5 py-24">
           <div className="flex flex-col md:flex-row items-center md:space-x-4 mt-2 ml-2">
             <Image
-              className="object-cover object-center w-336px h-536px mt-530px ml-300px radius-6px"
+              className="object-cover object-center w-336px h-536px -mt-96 ml-300px radius-6px"
               alt="hero"
-              src= "/about1.png" width={309} height={536} 
+              src="/yougot1.jpg" width={309} height={836}
             />
           </div>
           {/* Right Images */}
@@ -20,20 +115,20 @@ export default function Aboutus() {
             <Image
               className="object-cover object-center w-309px h-271px mt-584px ml-660px radius-6px"
               alt="image2"
-              src="/youget.png"
+              src="/recentPostFooter.jpg"
               width={309} height={271}
             />
             {/* Bottom Image */}
             <Image
               className="object-cover object-center w-309px h-382px mt-882px ml-660px radius-6px"
               alt="image3"
-              src="/youget2.png"
+              src="/about3.png"
               width={309} height={382}
             />
           </div>
           {/* Text Content and Buttons */}
           <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-            <h1 className="text-sm mb-4 font-medium text-yellow-400 italic">
+            <h1 className={`${letter.className} text-[18px] mb-4 font-medium text-yellow-400 italic`}>
               About us _____
             </h1>
             <p className="text-black title-font text-3xl font-bold">
@@ -47,11 +142,13 @@ export default function Aboutus() {
               velit in consequat.
             </p>
             <div className="flex justify-center">
-              <button className="inline-flex text-white bg-orange-400 border-0 py-2 px-3 focus:outline-none rounded text-lg">
+              <button className="inline-flex w-[195px] h-[58px] -mb-1 text-white hover:bg-amber-600 bg-[#FF9F0D] border-0 py-2 px-10 focus:outline-none rounded text-[18px]">
                 Show More
               </button>
               <button className="ml-4 inline-flex text-black  border-0 py-2 px-3 focus:outline-none rounded text-lg">
-                <IoPlayOutline className="mr-2 block" /> {/* Icon on the left */}
+                <div className="w-[60px] h-[60px] bg-[#FF9F0D] hover:bg-amber-600 mr-4 -mt-2 p-5 rounded-full">
+                  <IoPlayOutline className="mr-2 block -mt-2 -ml-1 text-white w-[30px] h-[30px]" />
+                </div> {/* Icon on the left */}
                 Watch video
               </button>
             </div>
@@ -62,76 +159,140 @@ export default function Aboutus() {
       {/* Second Section */}
       <section className="text-white body-font">
         <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col w-[579px]">
-            <h1 className="text-black text-3xl text-bold mt-3">Why Choose Us</h1>
-            <p className="text-black text-center mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam 
+          <h1 className="text-black text-3xl text-bold mt-3">Why Choose Us</h1>
+          <p className="text-black text-center mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam
             pellentesque bibendum non dui volutpat fringilla bibendum.</p>
           <Image
             className="mb-10 object-cover object-center w-1320px h-386px mt-1552px ml-300px mt-10"
             alt="hero"
-            src = "/about.png"
+            src="/about.png"
             width={1320} height={386}
           />
         </div>
       </section>
       {/* Thrid section */}
       <section className="text-white body-font">
-  <div className="container px-3 py-20 mx-auto">
-    <div className="flex flex-wrap -m-4">
-      <div className="p-4 md:w-1/3">
-        <div className="h-full  flex justify-center items-center  flex-col border-2 rounded-lg overflow-hidden">
-          <Image
-        
-            src="/student.png"
-            width={80} height={80}
-            alt="blog"
-          />
-          <div className="p-6">
-            <h1 className="title-font text-lg font-medium text-black mb-2 text-bold text-center">
-            BEST CHEF
-            </h1>
-            <p className="leading-relaxed mb-3 text-center text-black">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam pellentesque bibendum non dui volutpat</p>
+        <div className="container px-3 py-20 mx-auto">
+          <div className="flex flex-wrap -m-4">
+            <div className="p-4 md:w-1/3">
+              <div className="h-full  flex justify-center items-center  flex-col border-2 rounded-lg overflow-hidden">
+                <Image
+
+                  src="/student.png"
+                  width={80} height={80}
+                  alt="blog"
+                />
+                <div className="p-6">
+                  <h1 className="title-font text-lg font-medium text-black mb-2 text-bold text-center">
+                    BEST CHEF
+                  </h1>
+                  <p className="leading-relaxed mb-3 text-center text-black">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam pellentesque bibendum non dui volutpat</p>
+                </div>
+              </div>
             </div>
-        </div>
-      </div>
-      <div className="p-4 md:w-1/3">
-        <div className="h-full border-2 flex justify-center items-center  flex-col rounded-lg overflow-hidden">
-          <Image
-            className=""
-            src="/coffee.png"
-            width={80} height={80}
-            alt="blog"
-          />
-          <div className="p-6">
-            <h1 className="title-font text-lg font-medium text-black mb-2 text-bold text-center">
-            120 Item food
-            </h1>
-            <p className="leading-relaxed mb-3 text-center text-black">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam pellentesque bibendum non dui volutpat</p>
+            <div className="p-4 md:w-1/3">
+              <div className="h-full border-2 flex justify-center items-center  flex-col rounded-lg overflow-hidden">
+                <Image
+                  className=""
+                  src="/coffee.png"
+                  width={80} height={80}
+                  alt="blog"
+                />
+                <div className="p-6">
+                  <h1 className="title-font text-lg font-medium text-black mb-2 text-bold text-center">
+                    120 Item food
+                  </h1>
+                  <p className="leading-relaxed mb-3 text-center text-black">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam pellentesque bibendum non dui volutpat</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-4 md:w-1/3">
+              <div className="h-full border-2  flex justify-center items-center  flex-col rounded-lg overflow-hidden">
+                <Image
+                  className=" flex flex-col justify-center items-center"
+                  src="/man.png"
+                  width={80} height={80}
+                  alt="blog"
+
+                />
+                <div className="p-6">
+                  <h1 className="title-font text-lg font-medium text-black mb-2 text-bold text-center">
+                    Clean Environment
+                  </h1>
+                  <p className="leading-relaxed mb-3 text-center text-black">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam pellentesque bibendum non dui volutpat</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="p-4 md:w-1/3">
-        <div className="h-full border-2  flex justify-center items-center  flex-col rounded-lg overflow-hidden">
-          <Image
-            className=" flex flex-col justify-center items-center"
-            src="/man.png"
-            width={80} height={80}
-            alt="blog"
-            
-          />
-          <div className="p-6">
-            <h1 className="title-font text-lg font-medium text-black mb-2 text-bold text-center">
-            Clean Environment
-            </h1>
-            <p className="leading-relaxed mb-3 text-center text-black">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam pellentesque bibendum non dui volutpat</p>
+      </section>
+      {/* Team Member Section */}
+      <section className='w-full py-20 bg-[#ffa425] mb-20 my-20'>
+        <div className='container mx-auto px-4 md:px-6 '>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Team Member</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Varius sed pharetra dictum neque massa congue
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member, index) => (
+              <TeamMember
+                key={index}
+                name={member.name}
+                role={member.role}
+                image={member.image}
+              />
+            ))}
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="w-full py-20 mb-20 my-20 bg-black/20">
+        <Testimonials />
+      </section>
+
+      {/* Menu Section */}
+      <section className="w-full py-20 mb-20 my-20">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Food Menu</h2>
+            <p className="text-gray-800 max-w-2xl mx-auto">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Varius sed pharetra dictum neque massa congue
+            </p>
+          </div>
+          {/* Categories */}
+          <div className="flex justify-between max-w-4xl mx-auto mb-12">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                className={`text-xl text-[#333333] font-normal hover:text-[#FF9F0D] transition-colors`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
+          <div className="grid grid-cols-2 gap-8">
+            {menuItems.map((item, index) => (
+              <div key={index} className='flex gap-5 mb-3 border-b-2 border-gray-200'>
+                <div className={`${inter.className} text-[#333333]`}><p className='text-[20px] cursor-pointer hover:text-[#FF9F0D]'>{item.title}</p>
+                  <p style={{ fontWeight: 400 }} className='text-[14px]'>{item.description}</p>
+                  <p style={{ fontWeight: 400 }} className='text-[14px]'>{item.cal}</p>
+                </div>
+                <p className='text-[#FF9F0D] text-[18px]'>${item.price}</p>
+
+              </div>
+            ))}
+          </div>
+          <button className={`${text.className} w-[150px] mx-[45%] h-[52px] border-2 hover:bg-[#FF9F0D] border-[#FF9F0D] py-[14px] px-[32px] mt-[100px] text-[16px]`}><Link href={"/Menu"} className="text-[#FF9F0D] hover:text-white">View menu</Link></button>
+        </div>
+      </section>
     </div>
-  </div>
-</section>
-</div>
   );
 }

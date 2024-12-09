@@ -1,25 +1,26 @@
 import React from 'react'
 import Image from 'next/image'
 
+
 const Statistics = () => {
   const stats = [
     {
-      icon: '/Cheifhat.svg',
+      icon: '/cap.png',
       number: "420",
       label: "Professional Chefs"
     },
     {
-      icon: '/fastfood.svg',
+      icon: '/burger.png',
       number: "320",
       label: "Items Of Food"
     },
     {
-      icon: '/utensile.svg',
+      icon: '/spon.png',
       number: "30+",
       label: "Years Of Experienced"
     },
     {
-      icon: '/pizza.svg',
+      icon: '/pizza.png',
       number: "220",
       label: "Happy Customers"
     }
@@ -30,7 +31,7 @@ const Statistics = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0 w-screen">
         <Image 
-          src="/Clients.png" 
+          src="/staticsBg.jpeg" 
           alt="Statistics background" 
           fill
           className="object-cover"
@@ -46,7 +47,7 @@ const Statistics = () => {
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
               <div className="inline-block">
-                <div className="w-24 h-24 rounded-full border-2 border-[#FF9F0D] flex items-center justify-center mb-4 mx-auto backdrop-blur-sm bg-white/10">
+                <div className="w-24 h-24 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm">
                   <div className="text-[#FF9F0D]">
                     <Image src={stat.icon} alt={stat.label} width={100} height={100} />
                   </div>

@@ -1,17 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
 import { FaHamburger, FaCookieBite, FaWineGlass } from 'react-icons/fa'
+import { Great_Vibes } from 'next/font/google'
+
+const letter = Great_Vibes({subsets:["latin"], weight: "400"})
 
 const ExtraordinaryTaste = () => {
-  const foodImages = [
-    { id: 1, image: '/choose1.png', className: 'col-span-2' },
-    { id: 2, image: '/choose2.png' },
-    { id: 3, image: '/choose3.png' },
-    { id: 4, image: '/choose4.png' },
-    { id: 5, image: '/choose5.png' },
-    { id: 6, image: '/choose6.png' },
-  ]
-
   const features = [
     { icon: <FaHamburger className="w-8 h-8" />, label: 'Fast Food' },
     { icon: <FaCookieBite className="w-8 h-8" />, label: 'Lunch' },
@@ -27,7 +21,7 @@ const ExtraordinaryTaste = () => {
             {/* First row */}
             <div className="col-span-2 relative h-[280px]">
               <Image
-                src="/choose1.png"
+                src="/yougot1.jpg"
                 alt="Food image"
                 fill
                 className="rounded object-cover"
@@ -35,7 +29,7 @@ const ExtraordinaryTaste = () => {
             </div>
             <div className="relative top-[80px] h-[200px]">
               <Image
-                src="/choose2.png"
+                src="/yougot2.jpg"
                 alt="Food image"
                 fill
                 className="rounded object-cover"
@@ -45,7 +39,7 @@ const ExtraordinaryTaste = () => {
             {/* Bottom row */}
             <div className="relative h-[280px]">
               <Image
-                src="/choose3.png"
+                src="/yougot3.jpg"
                 alt="Food image"
                 fill
                 className="rounded object-cover"
@@ -53,7 +47,7 @@ const ExtraordinaryTaste = () => {
             </div>
             <div className="relative h-[200px]">
               <Image
-                src="/choose4.png"
+                src="/yougot4.jpg"
                 alt="Food image"
                 fill
                 className="rounded object-cover"
@@ -62,7 +56,7 @@ const ExtraordinaryTaste = () => {
             <div>
             <div className="relative h-[140px] mb-4">
               <Image
-                src="/choose5.png"
+                src="/yougot5.jpg"
                 alt="Food image"
                 fill
                 className="rounded object-cover"
@@ -70,7 +64,7 @@ const ExtraordinaryTaste = () => {
             </div>
             <div className="relative h-[140px]">
               <Image
-                src="/choose6.png"
+                src="/yougot6.jpg"
                 alt="Food image"
                 fill
                 className="rounded object-cover"
@@ -86,7 +80,7 @@ const ExtraordinaryTaste = () => {
           {/* Right side - Content */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-[#FF9F0D] font-great-vibes text-3xl mb-4">
+              <h3 className={`${letter.className} text-[#FF9F0D] font-great-vibes text-3xl mb-4`}>
                 Why Choose us
               </h3>
               <h2 className="text-[#FF9F0D] text-5xl font-bold mb-6">
@@ -121,9 +115,9 @@ const ExtraordinaryTaste = () => {
                 <div className="text-[#FF9F0D] text-5xl font-bold mb-2">
                   30+
                 </div>
-                <div className=" text-xl">
+                <div className=" text-[#1E1E1E] text-xl">
                   Years of<br />
-                  Experienced
+                  <b>Experienced</b>
                 </div>
               </div>
             </div>
