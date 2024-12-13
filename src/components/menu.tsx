@@ -57,7 +57,7 @@ const Menu = () => {
         </div>
 
         {/* Menu Images */}
-        <div className="lg:flex lg:flex-col grid md:flex-row justify-evenly items-center relative">
+        <div className="sm:flex sm:flex-col grid md:flex-row justify-evenly items-center relative">
           <div className="flex flex-col items-center">
             <Image
               src="/menu1a.png"

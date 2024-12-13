@@ -23,7 +23,7 @@ const RestaurantProcess = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-60 text-center px-4 sm:px-6 lg:px-8 py-24">
+      <div className="relative z-10 container lg:mx-60 text-center px-4 sm:px-6 lg:px-8 py-24">
         <div className="max-w-3xl flex flex-col ">
           {/* Header */}
           <h3 className={` ${letter.className} text-[#FF9F0D] font-great-vibes text-3xl mb-4`}>

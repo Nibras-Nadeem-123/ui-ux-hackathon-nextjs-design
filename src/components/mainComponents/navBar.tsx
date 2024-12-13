@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 
@@ -22,21 +22,21 @@ const NavBar: React.FC = () => {
 
   const navList: NavItem[] = [
     { name: "Home", link: "/" },
-    { name: "Menu", link: "/Manu" },
+    { name: "Menu", link: "/Menu" },
     {
       name: "Blog",
       link: "/blog",
-      dropdown: [{ name: "Blog Details", link: "/blog/blogDettails" }],
+      dropdown: [{ name: "Blog Details", link: "/blog/blogDetails" }],
     },
     {
       name: "Pages",
       link: "/",
       dropdown: [
         { name: "Sign up", link: "/signup" },
-        { name: "Sign in", link: "/logIn" },
-        { name: "FAQ", link: "/FAQ" },
-        { name: "404 Error", link: "/404Error" },
-        { name: "Check Out Page", link: "/checkOut" },
+        { name: "Sign in", link: "/login" },
+        { name: "FAQ", link: "/faq" },
+        { name: "404 Error", link: "/404" },
+        { name: "Check Out Page", link: "/checkout" },
       ],
     },
     {
@@ -48,8 +48,8 @@ const NavBar: React.FC = () => {
       name: "Shop",
       link: "/shop",
       dropdown: [
-        { name: "Shop Details", link: "/shop/shopDetail" },
-        { name: "Shopping Cart", link: "/shop/shopingCart" },
+        { name: "Shop Details", link: "/shop/shopDetails" },
+        { name: "Shopping Cart", link: "/shop/shoppingCart" },
       ],
     },
     { name: "Contact", link: "/contact" },
@@ -61,91 +61,67 @@ const NavBar: React.FC = () => {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
+    setActiveDropdown(null);
   };
-
-  const handleOutsideClick = (e: MouseEvent) => {
-    const dropdownArea = document.querySelector(".dropdown");
-    const sidebarArea = document.querySelector(".sidebar");
-    if (
-      dropdownArea &&
-      !dropdownArea.contains(e.target as Node) &&
-      sidebarArea &&
-      !sidebarArea.contains(e.target as Node)
-    ) {
-      setActiveDropdown(null);
-      setMobileMenuOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("click", handleOutsideClick);
-    return () => {
-      document.removeEventListener("click", handleOutsideClick);
-    };
-  }, []);
 
   return (
-    <div className="relative w-full ml-20 bg-black text-white">
+    <nav className="relative bg-black text-white">
       <div className="container mx-auto px-4 flex items-center justify-between py-4">
         {/* Mobile Menu Toggle */}
-        <div className="lg:hidden">
-          <button
-            onClick={toggleMobileMenu}
-            className="text-white focus:outline-none"
-          >
-            ☰
-          </button>
-        </div>
+        <button
+          onClick={toggleMobileMenu}
+          className="lg:hidden text-white focus:outline-none"
+        >
+          ☰
+        </button>
 
-        {/* Mobile Sidebar (only shown on mobile) */}
+        {/* Mobile Sidebar */}
         {isMobileMenuOpen && (
-          <div className="sidebar fixed top-0 left-0 w-64 h-full bg-black text-white z-50">
-            <div className="flex flex-col items-start space-y-6 py-10 px-4">
-              {navList.map((nav, i) => (
-                <div
-                  key={i}
-                  className="relative group dropdown"
-                  onClick={() => handleDropdownToggle(i)} // Toggle dropdown on click
-                >
-                  <Link
-                    href={nav.link}
-                    className={`${inter.className} hover:text-[#FF9F0D]`}
-                  >
-                    {nav.name}
-                  </Link>
+          <>
+            {/* Overlay */}
+            <div
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            />
 
-                  {/* Dropdown */}
-                  {nav.dropdown && activeDropdown === i && (
-                    <div className="absolute top-full left-0 bg-white text-black mt-2 rounded-lg shadow-lg p-4 z-50 w-48">
-                      <ul>
+            {/* Sidebar */}
+            <div className="fixed top-0 left-0 w-64 h-full bg-black text-white z-50 overflow-y-auto">
+              <div className="flex flex-col p-4 space-y-4">
+                {navList.map((nav, i) => (
+                  <div key={i}>
+                    <div
+                      onClick={() => handleDropdownToggle(i)}
+                      className="cursor-pointer"
+                    >
+                      <Link
+                        href={nav.link}
+                        className="block py-2 hover:text-[#FF9F0D]"
+                      >
+                        {nav.name}
+                      </Link>
+                    </div>
+                    {nav.dropdown && activeDropdown === i && (
+                      <ul className="pl-4 space-y-2">
                         {nav.dropdown.map((item, j) => (
                           <li key={j} className="hover:text-[#FF9F0D]">
                             <Link href={item.link}>{item.name}</Link>
                           </li>
                         ))}
                       </ul>
-                    </div>
-                  )}
-                </div>
-              ))}
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          </>
         )}
 
-        {/* Overlay for hiding other content */}
-        {isMobileMenuOpen && (
-          <div
-            onClick={() => setMobileMenuOpen(false)}
-            className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40"
-          />
-        )}
-
-        {/* Desktop Navbar (only shown on larger screens) */}
-        <div className="hidden lg:flex flex-row items-center space-x-6">
+        {/* Desktop Navbar */}
+        <div className="hidden lg:flex space-x-6">
           {navList.map((nav, i) => (
             <div
               key={i}
-              className="relative group dropdown"
+              className="relative group"
               onMouseEnter={() => setActiveDropdown(i)}
               onMouseLeave={() => setActiveDropdown(null)}
             >
@@ -155,24 +131,20 @@ const NavBar: React.FC = () => {
               >
                 {nav.name}
               </Link>
-
-              {/* Dropdown */}
               {nav.dropdown && activeDropdown === i && (
-                <div className="absolute top-full left-0 bg-white text-black mt-2 rounded-lg shadow-lg p-4 z-50 w-48">
-                  <ul>
-                    {nav.dropdown.map((item, j) => (
-                      <li key={j} className="hover:text-[#FF9F0D]">
-                        <Link href={item.link}>{item.name}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="absolute bg-white text-black rounded-lg shadow-lg mt-2 w-48 p-4 z-50">
+                  {nav.dropdown.map((item, j) => (
+                    <li key={j} className="hover:text-[#FF9F0D]">
+                      <Link href={item.link}>{item.name}</Link>
+                    </li>
+                  ))}
+                </ul>
               )}
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

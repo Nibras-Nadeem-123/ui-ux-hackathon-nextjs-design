@@ -12,17 +12,15 @@ import BlogPost from '@/components/blogPost';
 import { Great_Vibes } from "next/font/google";
 import { ImTwitter } from "react-icons/im";
 import { TfiFacebook, TfiPinterest } from "react-icons/tfi";
-import Header from "@/components/mainComponents/header";
-
+ 
 const letter = Great_Vibes({ subsets: ["latin"], weight: "400" });
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#0D0D0D]">
-      <Header />
-
+ 
       {/* Hero Section */}
-      <div className="min-h-screen pt-5 w-full relative">
+      <div className="min-h-screen pt-20 w-full relative">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
