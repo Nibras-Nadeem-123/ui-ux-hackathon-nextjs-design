@@ -4,9 +4,9 @@ import ContentRightSide from './ContentRightSide'
 
 const MainContent = () => {
   return (
-    <div className='flex gap-2 px-32 py-16'>
-      <ContentLeftSide/>
-      <ContentRightSide/>
+    <div className='flex flex-col lg:flex-row gap-4 px-4 sm:px-8 lg:px-32 py-8'>
+      <ContentLeftSide />
+      <ContentRightSide />
     </div>
   )
 }

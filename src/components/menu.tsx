@@ -4,8 +4,7 @@ import { Inter } from 'next/font/google'
 import { Great_Vibes } from 'next/font/google'
 
 const letter = Great_Vibes({ subsets: ["latin"], weight: "400" })
-
-const inter = Inter({subsets:["latin"], weight: "700"})
+const inter = Inter({ subsets: ["latin"], weight: "700" })
 
 const Menu = () => {
   const categories = [
@@ -19,55 +18,14 @@ const Menu = () => {
   ]
 
   const menuItems = [
-    {
-      image: '/menufood1.jpeg',
-      title: 'Lettuce Leaf',
-      description: 'Lacus nisi, et ac dapibus velit in consequat.',
-      price: '12.5'
-    },
-    {
-      image: '/menufood5.jpeg',
-      title: 'Lettuce Leaf',
-      description: 'Lacus nisi, et ac dapibus velit in consequat.',
-      price: '12.5'
-    },
-    {
-      image: '/yougot4.jpg',
-      title: 'Lettuce Leaf',
-      description: 'Lacus nisi, et ac dapibus velit in consequat.',
-      price: '12.5'
-    },
-    {
-      image: '/blogpost4.jpg',
-      title: 'Lettuce Leaf',
-      description: 'Lacus nisi, et ac dapibus velit in consequat.',
-      price: '12.5'
-    }, {
-      image: '/menufood3.jpeg',
-      title: 'Lettuce Leaf',
-      description: 'Lacus nisi, et ac dapibus velit in consequat.',
-      price: '12.5'
-    },
-
-    {
-      image: '/foodpic3.jpeg',
-      title: 'Lettuce Leaf',
-      description: 'Lacus nisi, et ac dapibus velit in consequat.',
-      price: '12.5'
-    },
-    {
-      image: '/menufood4.jpeg',
-      title: 'Lettuce Leaf',
-      description: 'Lacus nisi, et ac dapibus velit in consequat.',
-      price: '12.5'
-    },
-    {
-      image: '/food4.png',
-      title: 'Lettuce Leaf',
-      description: 'Lacus nisi, et ac dapibus velit in consequat.',
-      price: '12.5'
-    },
-
+    { image: '/menufood1.jpeg', title: 'Lettuce Leaf', description: 'Lacus nisi, et ac dapibus velit in consequat.', price: '12.5' },
+    { image: '/menufood5.jpeg', title: 'Lettuce Leaf', description: 'Lacus nisi, et ac dapibus velit in consequat.', price: '12.5' },
+    { image: '/yougot4.jpg', title: 'Lettuce Leaf', description: 'Lacus nisi, et ac dapibus velit in consequat.', price: '12.5' },
+    { image: '/blogpost4.jpg', title: 'Lettuce Leaf', description: 'Lacus nisi, et ac dapibus velit in consequat.', price: '12.5' },
+    { image: '/menufood3.jpeg', title: 'Lettuce Leaf', description: 'Lacus nisi, et ac dapibus velit in consequat.', price: '12.5' },
+    { image: '/foodpic3.jpeg', title: 'Lettuce Leaf', description: 'Lacus nisi, et ac dapibus velit in consequat.', price: '12.5' },
+    { image: '/menufood4.jpeg', title: 'Lettuce Leaf', description: 'Lacus nisi, et ac dapibus velit in consequat.', price: '12.5' },
+    { image: '/food4.png', title: 'Lettuce Leaf', description: 'Lacus nisi, et ac dapibus velit in consequat.', price: '12.5' },
   ]
 
   return (
@@ -75,7 +33,7 @@ const Menu = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h3 className={`${letter.className} text-[#FF9F0D] font-great-vibes text-3xl mb-2`}>
+          <h3 className={`${letter.className} text-[#FF9F0D] text-3xl mb-2`}>
             Choose & pick
           </h3>
           <h2 className="text-[#FF9F0D] text-6xl font-bold">
@@ -84,55 +42,63 @@ const Menu = () => {
         </div>
 
         {/* Categories */}
-        <div className="flex justify-between max-w-4xl mx-auto mb-12">
+        <div className="lg:flex justify-between max-w-4xl mx-auto mb-12">
           {categories.map((category) => (
             <button
               key={category.id}
               className={`text-xl ${category.active
-                  ? 'text-[#FF9F0D] font-bold'
-                  : 'text-white font-normal hover:text-[#FF9F0D] transition-colors'
-                }`}
+                ? 'text-[#FF9F0D] font-bold'
+                : 'text-white font-normal hover:text-[#FF9F0D] transition-colors'
+              }`}
             >
               {category.name}
             </button>
           ))}
         </div>
 
-        {/* Menu Image */}
-        <div className="flex flex-col md:flex-row justify-evenly items-center">
-          <div className=" flex flex-col items-center">
+        {/* Menu Images */}
+        <div className="lg:flex lg:flex-col grid md:flex-row justify-evenly items-center relative">
+          <div className="flex flex-col items-center">
             <Image
               src="/menu1a.png"
               alt="Our Menu Top"
               width={515}
               height={500}
-              className=" absolute w-[515px] h-[406px]  object-contain " // Margin for spacing
+              className="absolute w-[515px] h-[406px] object-contain"
             />
             <Image
               src="/menu1.png"
               alt="Our Menu Bottom"
               width={615}
               height={500}
-              className=" relative w-[466px] h-[362px] object-contain"
+              className="relative w-[466px] h-[362px] object-contain"
             />
           </div>
+       
 
-          <div className="grid grid-cols-2 gap-8">
-            {menuItems.map((item, index) => (
-               <div key={index} className='flex gap-5'>
-                <Image src={item.image} alt='' height={100} width={100} className='h-[100px] w-[100px]'/>
-                <div className={`${inter.className} text-white`}><p className='text-[20px]'>{item.title}</p>
-                      <p style={{fontWeight: 400}} className='text-[14px]'>{item.description}</p>
-                      <p className='text-[#FF9F0D] text-[18px]'>${item.price}</p>
-                </div>
-               </div>
-            ))}
-          </div>
+        {/* Menu Items */}
+        <div className="grid lg:grid-cols-2 grid-cols-3 gap-8 mt-8">
+          {menuItems.map((item, index) => (
+            <div key={index} className="lg:flex gap-5 p-4 rounded-lg shadow-lg">
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={100}
+                height={100}
+                className="h-[100px] w-[100px] object-cover rounded-lg"
+              />
+              <div className={`${inter.className} text-white`}>
+                <p className="text-[20px] font-semibold">{item.title}</p>
+                <p className="text-[14px] font-normal">{item.description}</p>
+                <p className="text-[#FF9F0D] text-[18px] font-bold">${item.price}</p>
+              </div>
+            </div>
+          ))}
         </div>
-
+        </div>
       </div>
     </section>
   )
 }
 
-export default Menu 
+export default Menu

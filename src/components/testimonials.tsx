@@ -17,29 +17,29 @@ const Testimonials = () => {
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam pellentesque bibendum non dui volutpat fringilla bibendum. Urna, elit augue urna, vitae feugiat pretium donec id elementum. Ultrices mattis sed vitae mus risus. Lacus nisi, et ac dapibus sit eu velit in consequat.'
     },
     {
-        id: 2,
-        image: '/testimonial1.jpeg',
-        name: 'Alamin Hasan',
-        role: 'Food Specialist',
-        rating: 4,
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam pellentesque bibendum non dui volutpat fringilla bibendum. Urna, elit augue urna, vitae feugiat pretium donec id elementum. Ultrices mattis sed vitae mus risus. Lacus nisi, et ac dapibus sit eu velit in consequat.'
-      },
-      {
-        id: 3,
-        image: '/testimonial1.png',
-        name: 'Alamin Hasan',
-        role: 'Food Specialist',
-        rating: 4,
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam pellentesque bibendum non dui volutpat fringilla bibendum. Urna, elit augue urna, vitae feugiat pretium donec id elementum. Ultrices mattis sed vitae mus risus. Lacus nisi, et ac dapibus sit eu velit in consequat.'
+      id: 2,
+      image: '/testimonial1.jpeg',
+      name: 'Alamin Hasan',
+      role: 'Food Specialist',
+      rating: 4,
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam pellentesque bibendum non dui volutpat fringilla bibendum. Urna, elit augue urna, vitae feugiat pretium donec id elementum. Ultrices mattis sed vitae mus risus. Lacus nisi, et ac dapibus sit eu velit in consequat.'
     },
     {
-        id: 4,
-        image: '/testimonial1.png',
-        name: 'Alamin Hasan',
-        role: 'Food Specialist',
-        rating: 4,
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam pellentesque bibendum non dui volutpat fringilla bibendum. Urna, elit augue urna, vitae feugiat pretium donec id elementum. Ultrices mattis sed vitae mus risus. Lacus nisi, et ac dapibus sit eu velit in consequat.'
-      }
+      id: 3,
+      image: '/testimonial1.png',
+      name: 'Alamin Hasan',
+      role: 'Food Specialist',
+      rating: 4,
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam pellentesque bibendum non dui volutpat fringilla bibendum. Urna, elit augue urna, vitae feugiat pretium donec id elementum. Ultrices mattis sed vitae mus risus. Lacus nisi, et ac dapibus sit eu velit in consequat.'
+    },
+    {
+      id: 4,
+      image: '/testimonial1.png',
+      name: 'Alamin Hasan',
+      role: 'Food Specialist',
+      rating: 4,
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam pellentesque bibendum non dui volutpat fringilla bibendum. Urna, elit augue urna, vitae feugiat pretium donec id elementum. Ultrices mattis sed vitae mus risus. Lacus nisi, et ac dapibus sit eu velit in consequat.'
+    }
     // Add more testimonials for carousel
   ]
 
@@ -50,20 +50,18 @@ const Testimonials = () => {
         <h3 className={`${letter.className} text-[#FF9F0D] font-great-vibes text-3xl text-left mb-8`}>
           Testimonials
         </h3>
-        <h1 className="text-white text-4xl mt-8 mb-8 font-bold text-left">
-            What Our Clients Say
+        <h1 className="text-white text-4xl mt-16 lg:mb-8 mb-40 font-bold text-left">
+          What Our Clients Say
         </h1>
 
         {/* Testimonial Card */}
-        <div className="max-w-3xl mx-auto text-center bg-white rounded-xl p-12">
-            
+        <div className="max-w-3xl mx-auto text-center bg-white rounded-xl p-8 sm:p-12">
           {/* Quote Icon */}
-            {/* Quote Icon */}
-          <div className="flex justify-center mb-8 ">
-              <Image src="/testimonial1.jpeg" alt="quote" width={200} height={250} className="object-contain rounded-full -mt-40" />
+          <div className="flex justify-center mt-10 mb-8 ">
+            <Image src="/testimonial1.jpeg" alt="quote" width={200} height={250} className="object-contain rounded-full -mt-40" />
           </div>
           <div className="flex justify-center mb-8">
-            <PiQuotesThin  className="text-[#FF9F0D] text-5xl" />
+            <PiQuotesThin className="text-[#FF9F0D] text-5xl" />
           </div>
 
           {/* Testimonial Content */}
@@ -71,8 +69,6 @@ const Testimonials = () => {
             <p className="text-gray-600 text-lg leading-relaxed mb-8">
               {testimonials[0].text}
             </p>
-
-            
 
             {/* Rating Stars */}
             <div className="flex justify-center gap-1 mb-4">
@@ -92,9 +88,7 @@ const Testimonials = () => {
             <h4 className="text-2xl font-bold mb-2">
               {testimonials[0].name}
             </h4>
-            <p className="text-gray-500">
-              {testimonials[0].role}
-            </p>
+            <p className="text-gray-500">{testimonials[0].role}</p>
           </div>
 
           {/* Carousel Dots */}
@@ -103,9 +97,7 @@ const Testimonials = () => {
               <button
                 key={index}
                 className={`w-3 h-3 rounded-full ${
-                  index === 0
-                    ? 'bg-[#FF9F0D]'
-                    : 'bg-[#FF9F0D]/20'
+                  index === 0 ? 'bg-[#FF9F0D]' : 'bg-[#FF9F0D]/20'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -117,4 +109,4 @@ const Testimonials = () => {
   )
 }
 
-export default Testimonials 
+export default Testimonials

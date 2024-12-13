@@ -18,7 +18,7 @@ const ShoppingCart: React.FC = () => {
   const [couponCode, setCouponCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const [ratings, setRatings] = useState<Record<number, number>>({});
- 
+
   const handleQuantityChange = (index: number, newQuantity: number) => {
     const updatedItems = cartItems.map((item, i) =>
       i === index ? { ...item, quantity: newQuantity } : item
@@ -26,8 +26,8 @@ const ShoppingCart: React.FC = () => {
     setCartItems(updatedItems);
   };
 
-   // Render star ratings
-   const renderStars = (productId: number) => (
+  // Render star ratings
+  const renderStars = (productId: number) => (
     <div className="flex gap-1">
       {[1, 2, 3, 4, 5].map((star) => (
         <MdStar
@@ -58,49 +58,51 @@ const ShoppingCart: React.FC = () => {
 
   return (
     <div className="bg-white font-sans">
-    <Hero/>
+      <Hero />
       <header className="bg-cover bg-center h-48 flex items-center justify-center" style={{ backgroundImage: 'url(/path/to/header-bg.jpg)' }}>
         <h1 className="text-5xl font-bold text-white tracking-wide">Shopping Cart</h1>
       </header>
-      <main className="py-12 px-6 md:px-16 lg:px-28">
-        <table className="w-full border-collapse">
-          <thead>
-            <tr className="bg-gray-100 text-left">
-              <th className="p-4 font-semibold">Product</th>
-              <th className="p-4 font-semibold">Price</th>
-              <th className="p-4 font-semibold">Quantity</th>
-              <th className="p-4 font-semibold">Total</th>
-              <th className="p-4 font-semibold">Remove</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cartItems.map((item, index) => (
-              <tr key={index} className="border-b">
-                <td className="p-4 flex items-center">
-                  <Image src={item.image} alt={item.name} width={16} height={16} className="w-16 h-16 object-cover rounded mr-4" />
-                  <div>
+      <main className="lg:py-12 px-6 md:px-16 lg:px-28">
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse table-auto">
+            <thead>
+              <tr className="bg-gray-100 text-left">
+                <th className="p-4 font-semibold">Product</th>
+                <th className="p-4 font-semibold">Price</th>
+                <th className="p-4 font-semibold">Quantity</th>
+                <th className="p-4 font-semibold">Total</th>
+                <th className="p-4 font-semibold">Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartItems.map((item, index) => (
+                <tr key={index} className="border-b">
+                  <td className="p-4 flex flex-col md:flex-row items-center">
+                    <Image src={item.image} alt={item.name} width={64} height={64} className="object-cover rounded mb-4 md:mb-0 md:mr-4" />
+                    <div>
                       <p>{item.name}</p>
                       {renderStars(item.id)}
                     </div>
-                </td>
-                <td className="p-4">${item.price.toFixed(2)}</td>
-                <td className="p-4">
-                  <input
-                    type="number"
-                    value={item.quantity}
-                    onChange={(e) => handleQuantityChange(index, parseInt(e.target.value) || 0)}
-                    className="w-16 border rounded px-2 py-1 text-center"
-                    min="0"
-                  />
-                </td>
-                <td className="p-4">${(item.price * item.quantity).toFixed(2)}</td>
-                <td className="p-4 text-red-500 cursor-pointer" onClick={() => handleRemoveItem(index)}>
-                  &times;
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                  </td>
+                  <td className="p-4">${item.price.toFixed(2)}</td>
+                  <td className="p-4">
+                    <input
+                      type="number"
+                      value={item.quantity}
+                      onChange={(e) => handleQuantityChange(index, parseInt(e.target.value) || 0)}
+                      className="w-16 border rounded px-2 py-1 text-center"
+                      min="0"
+                    />
+                  </td>
+                  <td className="p-4">${(item.price * item.quantity).toFixed(2)}</td>
+                  <td className="p-4 text-red-500 cursor-pointer" onClick={() => handleRemoveItem(index)}>
+                    &times;
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mt-10">
           <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
