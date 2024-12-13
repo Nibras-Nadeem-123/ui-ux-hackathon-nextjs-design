@@ -1,5 +1,5 @@
-"use client"
-import React, { useState, useEffect, MouseEvent } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 
@@ -63,7 +63,7 @@ const NavBar: React.FC = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleOutsideClick = (e: MouseEvent<Document>) => {
+  const handleOutsideClick = (e: MouseEvent) => {
     const dropdownArea = document.querySelector(".dropdown");
     const sidebarArea = document.querySelector(".sidebar");
     if (
@@ -85,7 +85,7 @@ const NavBar: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full bg-black text-white">
+    <div className="relative w-full ml-20 bg-black text-white">
       <div className="container mx-auto px-4 flex items-center justify-between py-4">
         {/* Mobile Menu Toggle */}
         <div className="lg:hidden">
