@@ -41,7 +41,7 @@ export default function Aboutus() {
       name: "Tom Monrow",
       role: "Specialist",
       image: "/pic3.png"
-    }
+    },
   ];
 
   const menuItems = [
