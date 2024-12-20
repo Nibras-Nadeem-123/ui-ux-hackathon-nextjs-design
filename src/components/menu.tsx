@@ -77,7 +77,7 @@ const Menu = () => {
        
 
         {/* Menu Items */}
-        <div className="grid lg:grid-cols-2 grid-cols-3 gap-8 mt-8">
+        <div className="grid grid-cols-2 gap-8 mt-8">
           {menuItems.map((item, index) => (
             <div key={index} className="lg:flex gap-5 p-4 rounded-lg shadow-lg">
               <Image
