@@ -105,6 +105,9 @@ const Testimonials = () => {
           </div>
         </div>
       </div>
+      <div className='ml-[60%] -mt-[55%] opacity-35 -z-10'>
+        <Image src={"/aboutclient.png"} alt='' height={800} width={650} className='w-[595.51px] h-[700.43px]'/>
+      </div>
     </section>
   )
 }

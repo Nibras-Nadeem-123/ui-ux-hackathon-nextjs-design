@@ -62,6 +62,9 @@
   .border-border {
     border-color: hsl(var(--border)); /* Custom border utility */
   }
+  .bg-\[url\(\)\] {
+    background-image: url();
+  }
 }
 
 @layer base {

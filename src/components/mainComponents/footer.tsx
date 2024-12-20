@@ -32,7 +32,7 @@ const Footer = () => {
     ];
 
     return (
-        <div className='w-full bg-[#0D0D0D]'>
+        <div className='z-30 w-full bg-[#0D0D0D]'>
             {/* Support Section */}
             <div className='flex flex-col sm:flex-row w-full space-y-6 sm:space-y-0 sm:space-x-6 px-4 sm:px-20 py-10'>
                 <div className='text-center sm:text-left flex-1'>

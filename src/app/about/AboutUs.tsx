@@ -25,22 +25,22 @@ export default function Aboutus() {
     {
       name: "Mark Henry",
       role: "Owner",
-      image: "/chef1.png"
+      image: "/pic3.png"
     },
     {
       name: "Lucky Helen",
       role: "Chef",
-      image: "/chef2.png"
+      image: "/pic3.png"
     },
     {
       name: "Moon Henry",
       role: "Founder",
-      image: "/chef3.png"
+      image: "/pic3.png"
     },
     {
       name: "Tom Monrow",
       role: "Specialist",
-      image: "/chef4.png"
+      image: "/pic3.png"
     }
   ];
 
@@ -157,7 +157,7 @@ export default function Aboutus() {
       <section className="text-white body-font">
         <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
           <h1 className="text-black text-3xl text-bold mt-3">Why Choose Us</h1>
-          <p className="text-black text-center mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam pellentesque bibendum non dui volutpat fringilla bibendum.</p>
+          <p className="text-black text-center mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam <br/> pellentesque bibendum non dui volutpat fringilla bibendum.</p>
           <Image
             className="mb-10 object-cover object-center w-full sm:w-96 md:w-[80%] lg:w-[95%] xl:w-[80%] h-auto rounded-lg"
             alt="hero"
@@ -199,14 +199,15 @@ export default function Aboutus() {
       <section className="w-full py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Food Menu</h2>
+            <Image src={"/partnerBg.png"} alt="" height={150} width={150} className="absolute ml-[35%] -mt-6 rotate-45"/>
+            <h2 className=" relative text-4xl md:text-5xl font-bold mb-4">Our Food Menu</h2>
             <p className="text-gray-800 max-w-2xl mx-auto">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Varius sed pharetra dictum neque massa congue
             </p>
           </div>
           {/* Categories */}
-          <div className="flex flex-wrap justify-center mb-12 space-x-4">
+          <div className="flex flex-wrap justify-center mb-12 space-x-8">
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -216,7 +217,7 @@ export default function Aboutus() {
               </button>
             ))}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-1 mx-auto md:grid-cols-2 lg:grid-cols-2 gap-8">
             {menuItems.map((item, index) => (
               <div key={index} className="flex gap-5 mb-3 border-b-2 border-gray-200">
                 <div className={`${inter.className} text-[#333333]`}>
@@ -228,7 +229,7 @@ export default function Aboutus() {
               </div>
             ))}
           </div>
-          <button className={`${text.className} w-[150px] mx-auto h-[52px] border-2 hover:bg-[#FF9F0D] border-[#FF9F0D] py-[14px] px-[32px] mt-[100px] text-[16px]`}>
+          <button className={`${text.className} w-[150px] mx-[40%] h-[52px] border-2 hover:bg-[#FF9F0D] border-[#FF9F0D] py-[14px] px-[32px] mt-[100px] text-[16px]`}>
             <Link href={"/Menu"} className="text-[#FF9F0D] hover:text-white">View menu</Link>
           </button>
         </div>

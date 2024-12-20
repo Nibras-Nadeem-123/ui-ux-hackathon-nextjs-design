@@ -22,11 +22,11 @@ const NavBar: React.FC = () => {
 
   const navList: NavItem[] = [
     { name: "Home", link: "/" },
-    { name: "Menu", link: "/Manu" },
+    { name: "Menu", link: "/Menu" },
     {
       name: "Blog",
       link: "/blog",
-      dropdown: [{ name: "Blog Details", link: "/blog/blogDettails" }],
+      dropdown: [{ name: "Blog Details", link: "/blog/blogDetails" }],
     },
     {
       name: "Pages",
@@ -65,7 +65,7 @@ const NavBar: React.FC = () => {
   };
 
   return (
-    <nav className="relative bg-black text-white">
+    <nav className="relative text-black">
       <div className="container mx-auto px-4 flex items-center justify-between py-4">
         {/* Mobile Menu Toggle */}
         <button
@@ -95,7 +95,7 @@ const NavBar: React.FC = () => {
                     >
                       <Link
                         href={nav.link}
-                        className="block py-2 hover:text-[#FF9F0D] hover:underline"
+                        className="block py-2 hover:text-[#195A00] hover:underline"
                       >
                         {nav.name}
                       </Link>
@@ -103,7 +103,7 @@ const NavBar: React.FC = () => {
                     {nav.dropdown && activeDropdown === i && (
                       <ul className="pl-4 space-y-2">
                         {nav.dropdown.map((item, j) => (
-                          <li key={j} className="hover:text-[#FF9F0D]">
+                          <li key={j} className="hover:text-[#195A00] hover:underline">
                             <Link href={item.link}>{item.name}</Link>
                           </li>
                         ))}
@@ -127,14 +127,14 @@ const NavBar: React.FC = () => {
             >
               <Link
                 href={nav.link}
-                className={`${inter.className} hover:text-[#FF9F0D]`}
+                className={`${inter.className} hover:text-[#195A00] hover:underline`}
               >
                 {nav.name}
               </Link>
               {nav.dropdown && activeDropdown === i && (
                 <ul className="absolute bg-white text-black rounded-lg shadow-lg mt-2 w-48 p-4 z-50">
                   {nav.dropdown.map((item, j) => (
-                    <li key={j} className="hover:text-[#FF9F0D]">
+                    <li key={j} className="hover:text-[#195A00] hover:underline">
                       <Link href={item.link}>{item.name}</Link>
                     </li>
                   ))}

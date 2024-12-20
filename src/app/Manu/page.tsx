@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Statistics from '@/components/Statistics';
 import PageHeader from '@/components/pageHeader';
-
+ 
 export default function Menu() {
   const menuItems = [
     {
@@ -91,8 +91,13 @@ export default function Menu() {
 
       {/* Partners and Clients */}
       <div className="w-full lg:max-w-8xl my-20 lg:px-4 gap-8 items-center">
-        <p className="text-[18px] text-[#333333] text-center">Partners & Clients</p>
-        <p className="text-[48px] text-[#333333] font-bold text-center">We work with the best people</p>
+        <div className=" absolute w-[150.21px] h-[225.37px] ml-[40.5%] rotate-45 -mt-10">
+          <Image src={"/partnerBg.png"} alt="" height={150} width={160} className=" -rotate-6" />
+        </div>
+        <div>
+          <p className="relative text-[18px] text-[#333333] text-center ">Partners & Clients</p>
+          <p className=" relative text-[48px] text-[#333333] font-bold text-center">We work with the best people</p>
+        </div>
         <div className=" lg:flex grid grid-cols-2 lg:gap-5">
           <Image src="/bakery1.png" alt="Partner 1" height={129.23} width={240.96} className="lg:m-5" />
           <Image src="/bakery2.png" alt="Partner 2" height={129.23} width={240.96} className="lg:m-5" />
@@ -102,6 +107,9 @@ export default function Menu() {
           <Image src="/bakery6.png" alt="Partner 6" height={129.23} width={240.96} className="lg:m-5" />
         </div>
       </div>
-    </div>
+      <div className=" w-[725.97px] h-[468.73px] rotate-45 -ml-[82%] z-20 mt-10">
+        <Image src={"/partnerBg.png"} alt="" height={500} width={500} className=" -rotate-6" />
+      </div>
+     </div>
   );
 }
